@@ -1,0 +1,24 @@
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="ventas_extra_view_users_form">
+            <field name="name">ventas_extra.res.users.form</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <notebook position="inside">
+                        <page string="Ventas">
+                            <group>
+                                <group string="Limite de descuento">
+                                    <field name="limite_descuento"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </data>
+            </field>
+        </record>
+
+    </data>
+</openerp>

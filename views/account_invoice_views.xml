@@ -1,0 +1,45 @@
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="ventas_extra_invoice_form">
+            <field name="name">ventas_extra.account.invoice.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="groups_id" eval="[(4, ref('account.group_account_invoice'))]"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="payment_term_id" position="replace">
+                        <field name="payment_term_id" invisible="1"/>
+                    </field>
+                    <field name="price_unit" position="after">
+                        <field name="price_unit_rel"/>
+                    </field>
+                    <field name="price_unit" position="replace">
+                        <field name="price_unit" invisible="1"/>
+                    </field>
+                </data>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="ventas_extra_invoice_form2">
+            <field name="name">ventas_extra.account.invoice.form2</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="groups_id" eval="[(4, ref('account.group_account_manager'))]"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="payment_term_id" position="replace">
+                        <field name="payment_term_id" invisible="0"/>
+                    </field>
+                    <field name="price_unit_rel" position="replace">
+                        <field name="price_unit_rel" invisible="1"/>
+                    </field>
+                    <field name="price_unit" position="replace">
+                        <field name="price_unit" invisible="0"/>
+                    </field>
+                </data>
+            </field>
+        </record>
+
+    </data>
+</openerp>

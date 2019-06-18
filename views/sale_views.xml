@@ -1,0 +1,66 @@
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="ventas_extra_view_order_form">
+            <field name="name">ventas_extra.sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="groups_id" eval="[(4, ref('sales_team.group_sale_salesman')), (4, ref('sales_team.group_sale_salesman_all_leads'))]"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='order_line']/tree" position="attributes">
+                        <attribute name="editable"/>
+                    </xpath>
+                    <field name="payment_term_id" position="replace">
+                        <field name="payment_term_id" invisible="1"/>
+                    </field>
+                    <field name="pricelist_id" position="replace">
+                        <field name="pricelist_id" invisible="1"/>
+                    </field>
+                    <field name="price_unit" position="after">
+                        <field name="price_unit_rel"/>
+                    </field>
+                    <field name="price_unit" position="replace">
+                        <field name="price_unit" invisible="1"/>
+                    </field>
+                    <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="after">
+                        <field name="price_unit_rel"/>
+                    </xpath>
+                    <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="replace">
+                        <field name="price_unit" invisible="1"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="ventas_extra_view_order_form2">
+            <field name="name">ventas_extra.sale.order.form2</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="groups_id" eval="[(4, ref('sales_team.group_sale_manager'))]"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="payment_term_id" position="replace">
+                        <field name="payment_term_id" invisible="0"/>
+                    </field>
+                    <field name="pricelist_id" position="replace">
+                        <field name="pricelist_id" invisible="0"/>
+                    </field>
+                    <field name="price_unit_rel" position="replace">
+                        <field name="price_unit_rel" invisible="1"/>
+                    </field>
+                    <field name="price_unit" position="replace">
+                        <field name="price_unit" invisible="0"/>
+                    </field>
+                    <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit_rel']" position="replace">
+                        <field name="price_unit_rel" invisible="1"/>
+                    </xpath>
+                    <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="replace">
+                        <field name="price_unit" invisible="0"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+    </data>
+</openerp>
