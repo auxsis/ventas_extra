@@ -8,9 +8,6 @@
             <field name="groups_id" eval="[(4, ref('sales_team.group_sale_salesman')), (4, ref('sales_team.group_sale_salesman_all_leads'))]"/>
             <field name="arch" type="xml">
                 <data>
-                    <xpath expr="//field[@name='order_line']/tree" position="attributes">
-                        <attribute name="editable"/>
-                    </xpath>
                     <field name="payment_term_id" position="replace">
                         <field name="payment_term_id" invisible="1"/>
                     </field>
