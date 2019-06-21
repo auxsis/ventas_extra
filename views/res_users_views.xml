@@ -10,8 +10,9 @@
                     <notebook position="inside">
                         <page string="Ventas">
                             <group>
-                                <group string="Limite de descuento">
+                                <group string="Permisos">
                                     <field name="limite_descuento"/>
+                                    <field name="ventas_menor_costo"/>
                                 </group>
                             </group>
                         </page>

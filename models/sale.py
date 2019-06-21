@@ -12,6 +12,8 @@ class SaleOrder(models.Model):
         for line in self.order_line:
             if line.discount > self.env.user.limite_descuento:
                 raise UserError('El descuento máximo permitido para este usuario es: ' + str(self.env.user.limite_descuento) + '%')
+            if line.price_unit < line.product_id.standard_price and not self.env.user.ventas_menor_costo:
+                raise UserError('El precio ingresado está por abajo del costo y no es permitido para este usuario.')
 
         super(SaleOrder, self).action_confirm()
         return True
