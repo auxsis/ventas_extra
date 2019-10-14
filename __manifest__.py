@@ -23,5 +23,6 @@
         'views/res_partner_views.xml',
         'views/sale_views.xml',
         'views/account_invoice_views.xml',
+        'views/account_views.xml',
     ],
 }
